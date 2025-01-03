@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="./assets/logo.png"/>
+    <title>Canteen - Explore Menu</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <!-- Canteen Name -->
+    <div class="main">
+        <div class="sidebar">
+            <div class="nav">
+                <div class="nav-option" style="opacity:1;">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="home.html">Home</a>
+                </div>
+                <div class="nav-option">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <a href="viewcart.html">Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="sticky-nav">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for dishes..." class="search-input">
+                    <button class="search-button"><i class="fa-solid fa-search"></i></button>
+                </div>
+            </div>
+            <div class="canteen-name">
+                <img src="assets/logo.png" alt="Canteen Logo"  class="canteen-logo">
+                <h1>GAPA GUP</h1>
+            </div>
+            <div class="subhead">
+                <h2>Mouth Watering Joy</h2>
+            </div>
+              <!-- This section is where search results will appear after searching -->
+             <div id="search-results-container" style="display:list-item;"></div>
+            <div class="menu-timings">
+                <h3>Breakfast Menu Timings: <span>8:30 AM to 11:00 AM</span></h3>
+                <h3>Lunch Menu Timings: <span>12:00 PM to 3:00 PM</span></h3>
+            </div>
+            <img src="assets/image1.jpg" alt="Breakfast Menu" class="menu-image breakfast">    
+            <img src="assets/image_2.jpg" alt="Lunch Menu" class="menu-image lunch">
+            <img src="assets/image3.jpg" alt="Lunch Menu" class="menu-image lunch">   
+            <h2>Menu</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="assets/dosa.jpg" class="card-img"/>
+                    <p class="card-title">Masala Dosa</p>
+                    <p class="card-info">Crispy dosa with spicy potato filling...</p>
+                    <button class="add-to-cart" onclick="addToCart('Masala Dosa', 50)">Add to Cart</button>
+                </div>
+                
+                <div class="card">
+                    <img src="assets/veg_biryani.jpg" class="card-img"/>
+                    <p class="card-title">Veg-Biryani</p>
+                    <p class="card-info">Aromatic rice with flavorful vegetables...</p>
+                    <button class="add-to-cart" onclick="addToCart('Veg-Biryani', 120)">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="assets/thali.jpg" class="card-img"/>
+                    <p class="card-title">Veg Thali</p>
+                    <p class="card-info">A wholesome plate with multiple dishes...</p>
+                    <button class="add-to-cart" onclick="addToCart('Veg Thali', 150)">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="assets/toast.jpg" class="card-img"/>
+                    <p class="card-title">Veg French Toast</p>
+                    <p class="card-info">Crispy, Savory Delight toast...</p>
+                    <button class="add-to-cart" onclick="addToCart('Veg French Toast', 60)">Add to Cart</button>
+                </div>
+            </div>
+
+            <h2>Popular Combos</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="assets/burger.jpg" class="card-img"/>
+                    <p class="card-title">Burger & Fries</p>
+                    <p class="card-info">Juicy burger with crispy fries...</p>
+                    <button class="add-to-cart" onclick="addToCart('Burger & Fries', 120)">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="assets/pizza.jpg" class="card-img"/>
+                    <p class="card-title">Pizza & Coke</p>
+                    <p class="card-info">Cheesy pizza with refreshing Coke...</p>
+                    <button class="add-to-cart" onclick="addToCart('Pizza & Coke', 180)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="assets/burger.jpg" class="card-img"/>
+                    <p class="card-title">Burger & Fries</p>
+                    <p class="card-info">Juicy burger with crispy fries...</p>
+                    <button class="add-to-cart" onclick="addToCart('Burger & Fries', 180)">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="assets/pizza.jpg" class="card-img"/>
+                    <p class="card-title">Pizza & Coke</p>
+                    <p class="card-info">Cheesy pizza with refreshing Coke...</p>
+                    <button class="add-to-cart" onclick="addToCart('Pizza & Coke', 180)">Add to Cart</button>
+                </div>
+
+            </div>
+
+            <h2>Menu Details</h2>
+            <div class="menu-details-container">
+                <h3>Breakfast Menu</h3>
+                <ul class="menu-details" id="breakfast-menu">
+                    <li>
+                        <strong>BOILED EGG</strong> - ₹20
+                        <button class="add-to-cart" onclick="addToCart('Boiled Egg', 20)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>EGG HALF FRY</strong> - ₹30
+                        <button class="add-to-cart" onclick="addToCart('Egg Half Fry', 30)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>BREAD OMELETTE</strong> - ₹40
+                        <button class="add-to-cart" onclick="addToCart('BREAD OMELETTE', 40)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>VEG FRENCH TOAST</strong> - ₹60
+                        <button class="add-to-cart" onclick="addToCart('VEG FRENCH TOAST', 60)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CHEESE OMELETTE</strong> - ₹70
+                        <button class="add-to-cart" onclick="addToCart('CHEESE OMELETTE', 70)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>PAV BHAJI</strong> - ₹60
+                        <button class="add-to-cart" onclick="addToCart('PAV BHAJI', 60)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CHOLE BHATURE</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('CHOLE BHATURE', 80)">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Lunch Menu Section -->
+            <div class="menu-details-container">
+                <h3>Lunch Menu</h3>
+                <ul class="menu-details" id="lunch-menu">
+                    <li>
+                        <strong>VEG STEAMED MOMO'S</strong> - ₹60
+                        <button class="add-to-cart" onclick="addToCart(' VEG STEAMED MOMOS ', 60)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>VEG FRIED MOMO'S</strong> - ₹70
+                        <button class="add-to-cart" onclick="addToCart('VEG FRIED MOMOS', 70)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>PERI PERI MOMO'S STEAMED</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('PERI PERI MOMOS STEAMED', 80)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>PERI PERI MOMO'S FRIED</strong> - ₹90
+                        <button class="add-to-cart" onclick="addToCart('PERI PERI MOMOS FRIED', 90)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CORN CHEESE STEAMED MOMO'S</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('CORN CHEESE STEAMED MOMOS', 80)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CORN CHEESE FRIED MOMO'S</strong> - ₹90
+                        <button class="add-to-cart" onclick="addToCart('CORN CHEESE FRIED MOMOS', 90)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>EGG RICE</strong> - ₹70
+                        <button class="add-to-cart" onclick="addToCart('EGG RICE', 70)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>EGG BIRYANI</strong> - ₹100
+                        <button class="add-to-cart" onclick="addToCart('EGG BIRYANI', 100)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>EGG THALI</strong> - ₹120
+                        <button class="add-to-cart" onclick="addToCart('EGG THALI', 120)">Add to Cart</button>
+                    </li>
+                    
+                    <li>
+                        <strong>VEG FRIED RICE</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('VEG FRIED RICE', 80)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>VEG BIRYANI</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('VEG BIRYANI', 80)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>VEG THALI</strong> - ₹100
+                        <button class="add-to-cart" onclick="addToCart('VEG THALI', 100)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>EGG CHILLI</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('EGG CHILLI', 80)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>PANI PURI</strong> - ₹30
+                        <button class="add-to-cart" onclick="addToCart('PANI PURI', 30)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>SEV PURI</strong> - ₹40
+                        <button class="add-to-cart" onclick="addToCart('SEV PURI', 40)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>BOMBAY BHEL</strong> - ₹40
+                        <button class="add-to-cart" onclick="addToCart('BOMBAY BHEL', 40)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>VADA PAV</strong> - ₹30
+                        <button class="add-to-cart" onclick="addToCart('VADA PAV', 30)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CHEESE VADA PAV</strong> - ₹40
+                        <button class="add-to-cart" onclick="addToCart('CHEESE VADA PAV', 40)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>SAMOSA</strong> - ₹20
+                        <button class="add-to-cart" onclick="addToCart('SAMOSA', 20)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>KACHORI</strong> - ₹30
+                        <button class="add-to-cart" onclick="addToCart('KACHORI', 30)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>SAMOSA CHAT</strong> - ₹40
+                        <button class="add-to-cart" onclick="addToCart('SAMOSA CHAT', 40)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>KACHORI CHAT</strong> - ₹50
+                        <button class="add-to-cart" onclick="addToCart('KACHORI CHAT', 50)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CHOLE BHATURE</strong> - ₹80
+                        <button class="add-to-cart" onclick="addToCart('CHOLE BHATURE', 80)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>ALOO PARATHA</strong> - ₹70
+                        <button class="add-to-cart" onclick="addToCart('ALOO PARATHA', 70)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>CHEESE PARATHA</strong> - ₹90
+                        <button class="add-to-cart" onclick="addToCart('CHEESE PARATHA', 90)">Add to Cart</button>
+                    </li>
+                    <li>
+                        <strong>PANEER PARATHA</strong> - ₹100
+                        <button class="add-to-cart" onclick="addToCart('PANEER PARATHA', 100)">Add to Cart</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Contact us at: GapaGup@example.com | Phone: 8050039900</p>
+        </div>
+    </div>
+    <script src="script.js" ></script>
+</body>
+</html>

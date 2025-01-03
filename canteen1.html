@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eat More</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Your existing styles */
+    </style>
+ 
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Eat More</a>
+            <img src="assets/logo.png" alt="canteen-logo"  width="300" height="200" class="canteen-logo"/>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewcart.html">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Menu</h2>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-3">
+                    <div class="card menu-card">
+                        <img src="https://t3.ftcdn.net/jpg/09/45/46/76/240_F_945467688_2qCMHFomTiEEgiaKuB7bLmQVvuC8yY6r.jpg" alt="Masala Dosa">
+                        <div class="card-body">
+                            <h5>Masala Dosa</h5>
+                            <p>Crispy dosa with spicy potato filling...</p>
+                            <button class="btn btn-sm" onclick="addToCart('Masala Dosa', 50)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3">
+                    <div class="card menu-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Hyderabadi_Chicken_Biryani.jpg" alt="Chicken Biryani">
+                        <div class="card-body">
+                            <h5>Chicken Biryani</h5>
+                            <p>Aromatic rice with flavorful chicken...</p>
+                            <button class="btn btn-sm" onclick="addToCart('Chicken Biryani', 120)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-3">
+                    <div class="card menu-card">
+                        <img src="https://t4.ftcdn.net/jpg/04/48/22/45/240_F_448224550_fi5oA23AplHNg8Arl02jZKUjq1nvJR0c.jpg" alt="Veg Thali">
+                        <div class="card-body">
+                            <h5>Veg Thali</h5>
+                            <p>A wholesome plate with multiple dishes...</p>
+                            <button class="btn btn-sm" onclick="addToCart('Veg Thali', 80)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-3">
+                    <div class="card menu-card">
+                        <img src="https://t4.ftcdn.net/jpg/08/87/17/75/240_F_887177522_aqf9RjvhO2wiQ7JV0ESuCRiK5T86jMG4.jpg" alt="Paneer Butter Masala">
+                        <div class="card-body">
+                            <h5>Paneer Butter Masala</h5>
+                            <p>Rich and creamy paneer curry...</p>
+                            <button class="btn btn-sm" onclick="addToCart('Paneer Butter Masala', 150)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Eat More. Designed with ❤️</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to add items to the cart
+        function addToCart(itemName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const existingItem = cart.find(item => item.name === itemName);
+
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if the item already exists
+            } else {
+                cart.push({
+                    name: itemName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${itemName} has been added to your cart.`);
+        }
+
+        // Function to show menu image when clicking on the menu
+        function showImage(menu) {
+            const menuImage = document.getElementById('menuImage');
+            const menuImageElement = menuImage.querySelector('img');
+
+            // Update image based on clicked menu item
+            if (menu === 'home') {
+                menuImageElement.src = ''; // No image for Home
+                menuImage.style.display = 'none';
+            } else if (menu === 'menu') {
+                menuImageElement.src = 'https://img.freepik.com/free-vector/beautiful-food-menu-design-template_23-2149061881.jpg?semt=ais_hybrid'; // Example image for Menu
+                menuImage.style.display = 'block';
+            } else if (menu === 'cart') {
+                menuImageElement.src = ''; // No image for Cart
+                menuImage.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

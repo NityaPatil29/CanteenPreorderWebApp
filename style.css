@@ -1,0 +1,446 @@
+/* General body styling */
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/bc1.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    background-color:rgba(255, 255, 255, 0.8);
+}
+
+/* Main container styling */
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color:rgba(255, 255, 255, 0.8);
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Sidebar fixed on scroll */
+    height: 100vh; /* Full height */
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 10px 15px; /* Added padding for better spacing */
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-option a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-option:hover {
+    background-color: #ff5722;
+    color: white;
+    cursor: pointer;
+}
+
+/* Main content styling */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 70px 2rem; /* Adjust margin for spacing */
+    margin-left: 270px; /* Space for the sidebar */
+}
+
+/* Search bar styling */
+.search-bar {
+    position: fixed;
+    top: 0;
+    left: 250px; /* Offset for the sidebar */
+    width: calc(100% - 250px); /* Adjust width */
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+
+.search-button {
+    background-color: #ff5722;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-button i {
+    font-size: 1rem;
+}
+
+/* Menu section */
+h2 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Card styling */
+.card {
+    border-radius: 8px;
+    background-color: rgb(215, 203, 203);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card .card-title {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #ff5722; /* Bright orange for titles */
+    font-weight:500;
+}
+
+.card .card-info {
+    font-size: 0.9rem;
+    color: black; /* Light gray for card info */
+    margin: 0.5rem 0;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin: 100px 1rem; /* Adjust margins for smaller screens */
+    }
+
+    .search-bar {
+        left: 200px; /* Adjust for smaller sidebar */
+        width: calc(100% - 200px); /* Adjust width for smaller screens */
+    }
+
+    .search-input {
+        width: 70%;
+    }
+
+    .nav-option a {
+        font-size: 0.9rem;
+    }
+}
+/* Canteen Name Styling */
+.canteen-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.canteen-name img.canteen-logo {
+    width: 100px; /* Adjust the logo size */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.canteen-name h1 {
+    font-size: 5rem;
+    color: #ff5722;
+    background-color: rgba(255, 255, 255, 0.8); 
+    font-weight: 700;
+    margin: 0;
+}
+/* Menu details list styling */
+/* Menu details list styling */
+.menu-details {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Fixed to 4 equal-width columns */
+    gap: 1.5rem; /* Add space between items */
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+.menu-details li {
+    color: #333;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for each item */
+    padding: 10px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card-like look */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+.menu-details li:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.menu-details li strong {
+    color: #ff5722; /* Highlight menu item names */
+}
+
+.menu-details li::before {
+    content: "•";
+    color: #ff5722;
+    padding-right: 10px;
+}
+
+.subhead{
+    font-size: 2rem;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.8); 
+    font-weight: 200;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+.menu-timings {
+    background-color: rgba(255, 87, 34, 0.1); /* Light orange background */
+    border-left: 5px solid #ff5722; /* Highlight with a border */
+    padding: 10px 15px;
+    margin: 20px 0; /* Add spacing around the timings */
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.menu-timings span {
+    color: #ff5722; /* Highlight the timings */
+    font-weight: 600;
+}
+/* Menu Timings Section */
+.menu-timings {
+    background-color: rgba(255, 87, 34, 0.1); /* Light orange background */
+    border-left: 5px solid #ff5722; /* Border for emphasis */
+    padding: 20px 30px;
+    margin: 20px 0; /* Add spacing around the timings */
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.menu-timings h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px; /* Space between text and images */
+}
+
+.menu-timings span {
+    color: #ff5722; /* Highlight timings in orange */
+    font-weight: 700;
+}
+
+/* Image Styling */
+.menu-image {
+    width: 100%; /* Adjust to full width of the container */
+    max-width: 450px; /* Limit image width */
+    max-height: 300px; /* Set a maximum height to control image size */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    margin: 20px 0; /* Add space between the image and text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for a more polished look */
+    object-fit: cover; /* Ensures the image doesn't stretch */
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.menu-image:hover {
+    transform: scale(1.05); /* Slight zoom effect when hovered */
+}
+
+/* Styling for specific image types */
+.breakfast {
+    /* Additional styles for breakfast image, if necessary */
+    border: 3px solid #ff5722; /* Optional border for emphasis */
+}
+
+.lunch {
+    /* Additional styles for lunch image, if necessary */
+    border: 3px solid #ff5722; /* Optional border for emphasis */
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+    .menu-timings {
+        padding: 15px 20px; /* Reduced padding for smaller screens */
+    }
+
+    .menu-image {
+        max-width: 100%; /* Ensure image fits within smaller screens */
+        margin: 15px 0; /* Reduced margin */
+        max-height: 250px; /* Reduced height for smaller screens */
+    }
+}
+
+/* Menu Timings Section */
+.menu-timings {
+    background-color: rgba(255, 87, 34, 0.1); /* Light orange background */
+    border-left: 5px solid #ff5722; /* Border for emphasis */
+    padding: 20px 30px;
+    margin: 20px 0; /* Add spacing around the timings */
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.menu-timings h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px; /* Space between text and images */
+}
+
+.menu-timings span {
+    color: #ff5722; /* Highlight timings in orange */
+    font-weight: 700;
+}
+
+/* Image Styling */
+.menu-image {
+    width: 100%; /* Adjust to full width of the container */
+    max-width: 300px; /* Limit image width */
+    border-radius: 8px; /* Rounded corners */
+    margin: 20px 0; /* Add space between the image and text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for a more polished look */
+    object-fit: cover; /* Ensures the image doesn't stretch */
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.menu-image:hover {
+    transform: scale(1.05); /* Slight zoom effect when hovered */
+}
+
+/* Styling for specific image types */
+.breakfast {
+    /* Additional styles for breakfast image, if necessary */
+    border: 3px solid #ff5722; /* Optional border for emphasis */
+}
+
+.lunch {
+    /* Additional styles for lunch image, if necessary */
+    border: 3px solid #ff5722; /* Optional border for emphasis */
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+    .menu-timings {
+        padding: 15px 20px; /* Reduced padding for smaller screens */
+    }
+
+    .menu-image {
+        max-width: 100%; /* Ensure image fits within smaller screens */
+        margin: 15px 0; /* Reduced margin */
+    }
+}
+/* Style for "Add to Cart" button */
+.add-to-cart {
+    background-color: #ff5722; /* Orange color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: rgb(99, 187, 99); /* Darker shade on hover */
+}
+
+/* Optional: Style the buttons for better positioning */
+.menu-details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.menu-details li strong {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu-details li button {
+    margin-left: 10px;
+}

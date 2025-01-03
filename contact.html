@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Eat More</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&family=Shadows+Into+Light&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+            background-image: url('background.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header .logo img {
+            height: 100px;
+        }
+        header h1 {
+            color: #f55d04;
+            font-size: 3rem;
+            font-family: 'Shadows Into Light', cursive;
+        }
+        .content {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .content h2 {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            font-family: 'Shadows Into Light', cursive;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .content form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content input, .content textarea {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .content button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .content button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://cdn.dribbble.com/userupload/5966432/file/original-03c1fe57f7907074905632cbf187f058.png?crop=0x0-2800x2100" alt="Eat More Logo">
+            <h1>Eat More</h1>
+        </div>
+    </header>
+
+    <div class="content">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! If you have any questions, suggestions, or concerns, please feel free to reach out to us using the form below.</p>
+        
+        <form action="submit_form.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</body>
+</html>

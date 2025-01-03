@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Eat More</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #E76A00; /* Darker Orange */
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        .navbar .nav-links {
+            margin-right: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1rem;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cart Section */
+        .cart-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h1 {
+            font-size: 2rem;
+            color: #E76A00; /* Darker Orange */
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .cart-item button {
+            background-color: #E76A00; /* Darker Orange */
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cart-item button:hover {
+            background-color: #d55a00; /* Slightly darker for hover effect */
+        }
+
+        .total-price {
+            text-align: right;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #E76A00; /* Darker Orange */
+            margin-top: 20px;
+        }
+
+        /* Confirm Button */
+        .confirm-order {
+            background-color: #E76A00; /* Darker Orange */
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            display: block;
+            width: 200px;
+            text-align: center;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .confirm-order:hover {
+            background-color: #d55a00; /* Slightly darker for hover effect */
+        }
+
+        /* Empty Cart */
+        .empty-cart {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            background-color: #E76A00; /* Darker Orange */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">Eat More</div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+        </div>
+    </nav>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+        </div>
+
+        <div id="cart-container"></div>
+        <div id="total-price" class="total-price"></div>
+
+        <button id="confirm-order-btn" class="confirm-order" style="display:none;" onclick="confirmOrder()">Confirm Order</button>
+        <div id="order-notification"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Eat More. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-container');
+            const totalPriceContainer = document.getElementById('total-price');
+            const confirmOrderButton = document.getElementById('confirm-order-btn');
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p class="empty-cart">Your cart is empty!</p>';
+                totalPriceContainer.innerHTML = '';
+                confirmOrderButton.style.display = 'none';
+                return;
+            }
+
+            let totalPrice = 0;
+            cartContainer.innerHTML = '';
+            cart.forEach(item => {
+                if (item.name && item.price && item.quantity) {
+                    cartContainer.innerHTML += `
+                        <div class="cart-item">
+                            <p>${item.name} - ₹${item.price} x ${item.quantity}</p>
+                            <button onclick="removeFromCart('${item.name}')">Remove</button>
+                        </div>
+                    `;
+                    totalPrice += item.price * item.quantity;
+                }
+            });
+
+            totalPriceContainer.innerHTML = `Total: ₹${totalPrice}`;
+            confirmOrderButton.style.display = 'block';
+        }
+
+        function removeFromCart(itemName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.name !== itemName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        function confirmOrder() {
+            localStorage.removeItem('cart');
+            document.getElementById('order-notification').innerHTML = `
+                <p style="color: green; text-align: center; font-size: 1.2rem; margin-top: 20px;">Your order has been confirmed!</p>
+            `;
+            displayCart();
+        }
+
+        window.onload = displayCart;
+    </script>
+</body>
+</html>
